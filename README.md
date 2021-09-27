@@ -36,7 +36,9 @@ This module extracts morphological features for each of the binary masks in the 
     '-save_dir': Path to the directory in which the .xlsx and .pkl file are saved
 
 #### Output: 
-    .xlsx file and .pkl file for later use in the pipeline
+    .xlsx file and .pkl file for later use in the pipeline under the 'save_dir' directory
 
     
+
+
 
