@@ -1,0 +1,8 @@
+.DS_Store
+/data/20210430_BM_STA-NB-2_PFA.czi
+/data/20210430_BM_STA-NB-2_PFA.tiff
+/data/Paper
+/.ipynb_checkpoints
+/data/analysis/.gif_images
+/data/cellpose_segmentation
+/data/aipf.ome.tiff
