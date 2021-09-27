@@ -7,10 +7,10 @@
 This module extracts the image data from a .czi file.
 
 #### Input: 
-    'image_path'
+    'image_path': Path to the .czi-file from which the image data needs to be extracted
 
 #### Output: 
-    'target_path'
+    'target_path': Path + Filename to which the data is going to be saved.
 
 
 
