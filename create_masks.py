@@ -2,7 +2,7 @@
 import numpy as np
 from skimage import io
 from PIL import Image
-
+import os
 import argparse
 
 
@@ -16,6 +16,9 @@ def parse():
 def main():
 
     args = parse()
+
+    if not os.path.isdir(args.mask_dir):
+        os.mkdir(args.mask_dir)
 
     mask = np.array(io.imread(args.mask_image)).astype(np.uint16)
 
