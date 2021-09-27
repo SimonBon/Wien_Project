@@ -6,5 +6,11 @@
 
 This module extracts the image data from a .czi file.
 
+#### Input: 
+    'image_path'
+
+#### Output: 
+    'target_path'
+
 
 
