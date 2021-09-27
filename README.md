@@ -2,7 +2,7 @@
 
 ## Module Description:
 
-### [extract_image.py](https://github.com/SimonBon/Wien_Project/blob/master/extract_image.py)
+## [extract_image.py](https://github.com/SimonBon/Wien_Project/blob/master/extract_image.py)
 
 This module extracts the image data from a .czi file.
 
@@ -14,7 +14,7 @@ This module extracts the image data from a .czi file.
     File saved under 'target_path' with the image data in the .tiff format
 
 
-### [create_masks.py](https://github.com/SimonBon/Wien_Project/blob/master/create_masks.py)
+## [create_masks.py](https://github.com/SimonBon/Wien_Project/blob/master/create_masks.py)
 
 This module takes data from the output of CellPose and creates masks for each segmentation instance.
 
@@ -26,5 +26,5 @@ This module takes data from the output of CellPose and creates masks for each se
     Directory with with a binary .png image for each segmentation instance
 
 
-    
+
 
