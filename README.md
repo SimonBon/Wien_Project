@@ -91,3 +91,23 @@ After the mask directory is created containing all files from each segmentated c
     IMAGE_PATH: the path to the original image
     SAVE_DIR:   the newly created folder with the results
     MASKS_DIR:  path to the directory in which all masks from create_masks.py are located
+
+# Results
+
+## Orignial Image
+
+![](https://github.com/SimonBon/Wien_Project/blob/master/data/results/aipf.png)
+
+## Segmentation Output from CellPose
+
+![](https://github.com/SimonBon/Wien_Project/blob/master/data/results/segmntation.png)
+
+## Segmentation Output from CellPose
+
+![](https://github.com/SimonBon/Wien_Project/blob/master/data/results/overlay.png)
+
+## Segmentation Output from CellPose
+
+![](https://github.com/SimonBon/Wien_Project/blob/master/data/results/pca.gif)
+
+
