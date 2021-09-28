@@ -7,11 +7,11 @@
 This module extracts the image data from a .czi file.
 
 #### Input: 
-'image_path': Path to the .czi-file from which the image data needs to be extracted
-'target_path': Path + Filename to which the data is going to be saved.
+    'image_path': Path to the .czi-file from which the image data needs to be extracted
+    'target_path': Path + Filename to which the data is going to be saved.
 
 #### Output: 
-File saved under 'target_path' with the image data in the .tiff format
+    File saved under 'target_path' with the image data in the .tiff format
 
 
 ## [create_masks.py](https://github.com/SimonBon/Wien_Project/blob/master/create_masks.py)
@@ -57,19 +57,20 @@ This module uses the output from [morph_features.py](https://github.com/SimonBon
 
 ## [visualize.py](https://github.com/SimonBon/Wien_Project/blob/master/visualize.py)
 
-This module uses the output from [clustering.py](https://github.com/SimonBon/Wien_Project/blob/master/clustering.py) to 
+This module uses the output from [clustering.py](https://github.com/SimonBon/Wien_Project/blob/master/clustering.py) to create an overlay image on the originally used image for segmentation. In this image each cluster is assinged a specific color. 
+
 
 #### Input: 
 
-    '-pkl_file': Path to the .pkl file which was previoulsy created by morph_features.py
-    '-save_dir': Path to the directory where all files are going to be saved
-    '-v': flag to determine if a .gif is going to be created showing the 3D-PCA plot
-    '-clusters': define the number of clusters
+    '-pkl_file': Path to the .pkl file which was previoulsy created by clustering.py
+    '-image_file': Path to the image file that was orignally used for segmentation
+    '-masks_dir': path to the directory with all the masks created by CellPose
+    '-save_dir': directory under which the overlayed image is going to be saved
 
 #### Output: 
 
-    
-
+    .png file with the original image and the clustered masks colored as an overlay
+![alt text](https://github.com/SimonBon/Wien_Project/blob/master/data/analysis/overlay.png)
 
 
 
