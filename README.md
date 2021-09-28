@@ -70,11 +70,3 @@ This module uses the output from [clustering.py](https://github.com/SimonBon/Wie
 #### Output: 
 
     .png file with the original image and the clustered masks colored as an overlay
-
-
-       Original Image  |      Mask      |      Overlay       
-![](https://github.com/SimonBon/Wien_Project/blob/master/data/readme/aipf.png)![](https://github.com/SimonBon/Wien_Project/blob/master/data/readme/masks.png)     ![](https://github.com/SimonBon/Wien_Project/blob/master/data/readme/overlay.png)
-
-
-
-
