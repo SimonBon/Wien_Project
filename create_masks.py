@@ -10,13 +10,14 @@ from skimage import io
 from PIL import Image
 import os
 import argparse
+from tqdm import tqdm
 
 
 def parse():
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('mask_image', required=True,)
-    parser.add_argument('mask_dir', required=True,)
+    parser.add_argument('-mask_image', required=True,)
+    parser.add_argument('-mask_dir', required=True,)
     return parser.parse_args()
 
 
@@ -30,7 +31,7 @@ def main():
     mask = np.array(io.imread(args.mask_image)).astype(np.uint16)
 
     # iterate over all values in mask image (each color identifies a single cell)
-    for i in range(mask.min()+1, mask.max()):
+    for i in tqdm(range(mask.min()+1, mask.max())):
         patch = mask.copy()
         patch[patch != i] = 0
         patch[patch == i] = 255
