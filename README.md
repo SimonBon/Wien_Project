@@ -102,12 +102,14 @@ After the mask directory is created containing all files from each segmentated c
 
 ![](https://github.com/SimonBon/Wien_Project/blob/master/data/results/segmentation.png)
 
-## Segmentation Output from CellPose
+
+## 3D-PCA GIF
+
+![](https://github.com/SimonBon/Wien_Project/blob/master/data/results/pca.gif)
+
+## Classification Overlay
 
 ![](https://github.com/SimonBon/Wien_Project/blob/master/data/results/overlay.png)
 
-## Segmentation Output from CellPose
-
-![](https://github.com/SimonBon/Wien_Project/blob/master/data/results/pca.gif)
 
 
