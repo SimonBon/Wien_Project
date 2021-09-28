@@ -102,7 +102,6 @@ After the mask directory is created containing all files from each segmentated c
 
 ![](https://github.com/SimonBon/Wien_Project/blob/master/data/results/segmentation.png)
 
-
 ## 3D-PCA GIF
 
 ![](https://github.com/SimonBon/Wien_Project/blob/master/data/results/pca.gif)
