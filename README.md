@@ -85,4 +85,11 @@ The usage of [create_masks.py](https://github.com/SimonBon/Wien_Project/blob/mas
 
     python3 create_masks.py -mask_image <PATH> -mask_dir <PATH> 
 
+# Usage of analyse_patch.sh
+After the mask directory is created containing all files from each segmentated cell instance the analyse_patch.sh bash-script can be used for any further analysis.
 
+    bash analyse_patch.sh IMAGE_PATH= <PATH> SAVE_DIR= <PATH> MASKS_DIR= <PATH>
+
+    IMAGE_PATH: the path to the original image
+    SAVE_DIR:   the newly created folder with the results
+    MASKS_DIR:  path to the directory in which all masks from create_masks.py are located
