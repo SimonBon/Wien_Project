@@ -1,3 +1,14 @@
+'''
+script to extract morphological data from the original image in combination with the binary segmentation masks
+
+Parameters:
+mask_dir:  path to the directory where all binary mask images are saved
+image_path:  path to the orinigal image on which the segmentation was performed
+save_dir: directory where all the resulting files are going to be saved
+
+Created Files:
+.pkl and .xlsx file with cell information
+'''
 import os
 from skimage import io
 from skimage.measure import shannon_entropy, find_contours, perimeter
@@ -80,6 +91,7 @@ def main():
 
     args = parse()
 
+    # create save dir and set needed paths
     save_dir = args.save_dir
     if not os.path.isdir(save_dir):
         os.mkdir(save_dir)
@@ -87,17 +99,19 @@ def main():
     segmentations_path = args.masks_dir
     image_path = args.image_path
 
+    # read original image
     aipf_image = io.imread(image_path).astype(np.float64)
 
+    # get all segmentation masks
     segmentations = [x for x in os.listdir(segmentations_path) if not x.startswith(".")]
     segmentations = natsorted(segmentations)
     print("Number of cells segmented: ", len(segmentations))
 
+    # loop over all masks and extract data from each cell
     all_features = []
     for num, mask_name in enumerate(tqdm(segmentations)):
         mask_path = join(segmentations_path, mask_name)
         with Image.open(mask_path) as mask:
-            # mask = io.imread(mask_path).astype(bool)
             mask = np.array(mask).astype(bool)
             if mask.any():
 
@@ -109,6 +123,7 @@ def main():
                 del features
                 gc.collect()
 
+    # save extracted data into a dataframe and save as .xlsx and .pkl for later use
     df = pd.DataFrame(all_features)
     save_path = join(save_dir, "cells.pkl")
     df.iloc[:, :7].to_excel(join(save_dir, "cells.xlsx"))
@@ -117,5 +132,4 @@ def main():
 
 
 if __name__ == "__main__":
-
     main()

@@ -1,3 +1,11 @@
+'''
+function to extract image data from a .czi file and save it as a tiff file foe easier use
+
+Parameters:
+image_path:  path to the .czi image
+target_path:  desired path and name of the .tiff file
+'''
+
 from aicsimageio.writers import OmeTiffWriter
 from napari_czifile2 import io
 

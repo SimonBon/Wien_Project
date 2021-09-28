@@ -1,3 +1,12 @@
+'''
+script to visualize the classification of single cells
+
+Parameters:
+pkl_file:  path to pkl file previously generated to assign classes to cells
+image_file:  path to the original image file on which segmentation was performed
+mask_dir: path to the directory where all mask images are saved
+save_dir: path to the directory where the overlay image is saved
+'''
 import argparse
 import pandas as pd
 from skimage import io
@@ -32,20 +41,27 @@ def parse():
 def main():
     args = parse()
 
+    # read in clustered data and original image
     clustered_data = pd.read_pickle(args.pkl_file)
     image = io.imread(args.image_file)
+
+    # predefine new image of size of original image
     overlay = np.zeros((*image.shape, 3))
 
+    # define colors for overlay
     define_channel(clustered_data)
 
+    # names of the mask files
     names = clustered_data["name"]
 
+    # loop over files to assign color
     for name, channel in tqdm(zip(names, clustered_data["channel"])):
         with Image.open(os.path.join(args.masks_dir, name)) as mask:
             mask = np.array(mask).astype(bool)
 
         overlay[mask, channel] = 1
 
+    # plot image and save in save_dir
     _, ax = plt.subplots(figsize=(10, 10))
     ax.imshow(image, cmap="gray")
     ax.imshow(overlay, alpha=0.2)

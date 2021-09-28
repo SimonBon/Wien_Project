@@ -1,18 +1,6 @@
-'''
-Affinity Propagation
-Agglomerative Clustering
-BIRCH
-DBSCAN <---- ANSCHAUEN https://scikit-learn.org/stable/auto_examples/cluster/plot_cluster_comparison.html#sphx-glr-auto-examples-cluster-plot-cluster-comparison-py
-K-Means
-Mini-Batch K-Means
-Mean Shift
-OPTICS
-Spectral Clustering
-Mixture of Gaussians
-'''
-
+from locale import delocalize
 import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans, DBSCAN
+from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 import numpy as np
@@ -33,7 +21,13 @@ COLOR_LIST = ["tab:blue", "tab:green", "tab:orange", "c", "m", "y", "k"]
 
 
 def create_gif(images_dir: str, save_dir: str) -> None:
+    '''
+    creates a gif from a folder with respective images in it
 
+    Parameters:
+    image_dir:  directory with the images for the gif in it
+    save_dir:   directory where the created .gif is saved
+    '''
     images = [os.path.join(images_dir, x) for x in os.listdir(images_dir) if not x.startswith(".")]
     images = natsorted(images)
 
@@ -52,6 +46,16 @@ def create_gif(images_dir: str, save_dir: str) -> None:
 
 
 def vizualize(df: pd.DataFrame, save_dir: str,  per_var: list, centers=None) -> None:
+    '''
+    function creates 3D images from a dataframe and saves them in a hidden folder
+
+    Parameters:
+    df:         DataFrame for Cell Data
+    save_dir:   directory where hidden folder is saved
+    per_var:    contribution of the top 3 PCA variables
+    centers:    centers of the KNN
+
+    '''
 
     images_dir = os.path.join(save_dir, '.gif_images')
     if not os.path.isdir(images_dir):
@@ -130,19 +134,24 @@ def main():
 
     args = parse()
 
+    # get input data
     raw_data = pd.read_pickle(args.pkl_file)
 
+    # extract first 7 features
     feature_data = raw_data.iloc[:, :7]
 
+    # sclare and perform pca
     scaler = StandardScaler()
     scaled_features = scaler.fit_transform(feature_data)
     pca_df, per_var = perform_pca(scaled_features)
     pca_df = pca_df.iloc[:, :3]
 
+    # transform PCA results
     scaler = StandardScaler()
     scaled_features = scaler.fit_transform(pca_df)
     scaled_features = pd.DataFrame(scaled_features, columns=["PC1", "PC2", "PC3"])
 
+    # cluster PCA scaled features
     kmeans = KMeans(
         init='random',
         n_clusters=args.clusters,
@@ -152,11 +161,16 @@ def main():
 
     kmeans.fit(scaled_features)
 
+    # assign class to each segmented cell
     colors = define_colors(kmeans.labels_)
     scaled_features["class"] = colors
     raw_data["class"] = colors
+
+    #create .gif
     if args.v:
         vizualize(scaled_features, args.save_dir, per_var, centers=kmeans.cluster_centers_)
+
+    # save data
     save_path = os.path.join(args.save_dir, "clustered_cells.pkl")
     raw_data.to_pickle(save_path)
 

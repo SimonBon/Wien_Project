@@ -1,4 +1,10 @@
+'''
+Function to create individual binary images for each segmented instance from CellPose output
 
+Parameters:
+mask_image:  path to output image from CellPose
+mask_dir:  path to directory where images will be saved
+'''
 import numpy as np
 from skimage import io
 from PIL import Image
@@ -7,6 +13,7 @@ import argparse
 
 
 def parse():
+
     parser = argparse.ArgumentParser()
     parser.add_argument('mask_image', required=True,)
     parser.add_argument('mask_dir', required=True,)
@@ -22,6 +29,7 @@ def main():
 
     mask = np.array(io.imread(args.mask_image)).astype(np.uint16)
 
+    # iterate over all values in mask image (each color identifies a single cell)
     for i in range(mask.min()+1, mask.max()):
         patch = mask.copy()
         patch[patch != i] = 0
