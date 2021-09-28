@@ -73,19 +73,17 @@ This module uses the output from [clustering.py](https://github.com/SimonBon/Wie
 
 # [Command Line Usage](https://github.com/SimonBon/Wien_Project/blob/master/analyse_patch.sh)
 
-## analyse_patch.sh
-
 The entire pipeline can be used from the command-line. To analyse a specific segmented cell image the following are required:
 
 - Original Image on which CellPose segmentation was performed
 - Segmentation output from CellPose
 
-# Create single masks images from the CellPose output
+## Create single masks images from the CellPose output
 The usage of [create_masks.py](https://github.com/SimonBon/Wien_Project/blob/master/create_masks.py) is required to create a directory with all mask images extracted from the CellPose output.
 
     python3 create_masks.py -mask_image <PATH> -mask_dir <PATH> 
 
-# Usage of analyse_patch.sh
+## Usage of analyse_patch.sh
 After the mask directory is created containing all files from each segmentated cell instance the analyse_patch.sh bash-script can be used for any further analysis.
 
     bash analyse_patch.sh IMAGE_PATH= <PATH> SAVE_DIR= <PATH> MASKS_DIR= <PATH>
