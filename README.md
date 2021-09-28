@@ -100,7 +100,7 @@ After the mask directory is created containing all files from each segmentated c
 
 ## Segmentation Output from CellPose
 
-![](https://github.com/SimonBon/Wien_Project/blob/master/data/results/segmntation.png)
+![](https://github.com/SimonBon/Wien_Project/blob/master/data/results/segmentation.png)
 
 ## Segmentation Output from CellPose
 
