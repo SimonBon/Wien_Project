@@ -112,6 +112,7 @@ def parse():
     parser.add_argument('-pkl_file', required=True)
     parser.add_argument('-save_dir', required=True)
     parser.add_argument('-v', type=str, default="True")
+    parser.add_argument('-clusters', type=str, default=3, required=False)
 
     args = parser.parse_args()
 
@@ -144,7 +145,7 @@ def main():
 
     kmeans = KMeans(
         init='random',
-        n_clusters=3,
+        n_clusters=args.clusters,
         max_iter=100,
         n_init=20
     )

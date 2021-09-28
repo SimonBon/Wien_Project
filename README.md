@@ -38,7 +38,23 @@ This module extracts morphological features for each of the binary masks in the 
 #### Output: 
     .xlsx file and .pkl file for later use in the pipeline under the 'save_dir' directory
 
+## [clustering.py](https://github.com/SimonBon/Wien_Project/blob/master/clustering.py)
+
+This module uses the output from [morph_features.py](https://github.com/SimonBon/Wien_Project/blob/master/morph_features.py) to cluster the analysed cells into clusters using a PCA (Pricipal Component Analysis). The default number of clusters is 3, but can be changed with the "-clusters" flag. 
+
+
+#### Input: 
+
+    '-pkl_file': Path to the .pkl file which was previoulsy created by [morph_features.py](https://github.com/SimonBon/Wien_Project/blob/master/morph_features.py)
+    '-save_dir':
+    '-v':
+    '-clusters':
+
+#### Output: 
+    .xlsx file and .pkl file for later use in the pipeline under the 'save_dir' directory
+
     
+
 
 
 
