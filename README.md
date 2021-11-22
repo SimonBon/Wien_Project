@@ -55,7 +55,7 @@ This module uses the output from [morph_features.py](https://github.com/SimonBon
     .gif file and a hidden folder ".images" under "save_dir" containing the images for the gif from different angles
 
 
-## [visualize.py](https://github.com/SimonBon/Wien_Project/blob/master/visualize.py)
+## [visualize.py](https://github.com/SimonBon/Wien_Project/blob/master/visualization.py)
 
 This module uses the output from [clustering.py](https://github.com/SimonBon/Wien_Project/blob/master/clustering.py) to create an overlay image on the originally used image for segmentation. In this image each cluster is assinged a specific color. 
 
