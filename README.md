@@ -1,4 +1,4 @@
-# PhD - Challenge
+# PhD-Challenge
 
 ## Module Description:
 
